@@ -60,4 +60,12 @@ func main() {
 	fmt.Println(task.FullName())
 	fmt.Println(task.User)
 	fmt.Println(task)
+
+	var i uint8 = 3
+	var j uint32 = uint32(i)
+	fmt.Println(j)
+
+	var s string = "abc"
+	var b []byte = []byte(s)
+	fmt.Println(b)
 }
