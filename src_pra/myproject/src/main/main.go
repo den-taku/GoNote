@@ -64,4 +64,29 @@ func main() {
 	default:
 		f.Println(n)
 	}
+	n = 3
+	switch n {
+	case 3:
+		n = n - 1
+		fallthrough
+	case 2:
+		n = n - 1
+		fallthrough
+	case 1:
+		n = n - 1
+		f.Println(n)
+		
+	}
+	n = 10
+	switch {
+	case n%15==0:
+		f.Println("FizzBuzz")
+	case n%5==0:
+		f.Println("Buzz")
+	case n%3==0:
+		f.Println("Fizz")
+	default:
+		f.Println(n)
+		
+	}
 }
