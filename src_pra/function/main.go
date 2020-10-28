@@ -2,13 +2,23 @@ package main
 
 import (
 	"fmt"
+	// "os"
+	"errors"
+	"log"
 )
 
 func hello() {
 	fmt.Println("hello")
 }
 
-func sum(i, j int) int{
+func div(i, j int) (int, error) {
+	if j == 0 {
+		return 0, errors.New("divided by zero")
+	}
+	return i / j, nil
+}
+
+func sum(i, j int) int {
 	return i + j
 }
 
@@ -26,4 +36,15 @@ func main() {
 	x, _ = swap(x, y)
 	fmt.Println(x)
 	swap(x, y)
+
+	// file, err := os.Open("hoge.go")
+	// if err != nil {
+	// Err handling
+	// }
+
+	n, err := div(10, 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(n)
 }
