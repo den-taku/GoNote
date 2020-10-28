@@ -20,6 +20,17 @@ type Stringer interface {
 	String() string
 }
 
+func Print3(value interface{}) {
+	switch v := value.(type) {
+	case string:
+		fmt.Printf("value is string: %s\n", v)
+	case int:
+		fmt.Printf("value is int: %d\n", v)
+	case Stringer:
+		fmt.Printf("value is String: %s\n", v)
+	}
+}
+
 func Print(stringer Stringer) {
 	fmt.Println(stringer.String())
 }
@@ -53,6 +64,19 @@ func NewTask(id int, detail,
 	return task
 }
 
+func Print2(value interface{}) {
+	s, ok := value.(string)
+	if ok {
+		fmt.Printf("value is string: %s\n", s)
+	} else {
+		fmt.Printf("value is not string\n")
+	}
+}
+
+// type Stringer interface {
+// 	String() string
+// }
+
 func main() {
 	task := NewTask(1, "buy the milk", "Jxck", "Daniel")
 	fmt.Println(task.FirstName)
@@ -68,4 +92,11 @@ func main() {
 	var s string = "abc"
 	var b []byte = []byte(s)
 	fmt.Println(b)
+
+	Print2("abc")
+	Print2(10)
+
+	Print3("abc")
+	Print3(10)
+	Print3(new(Task))
 }
