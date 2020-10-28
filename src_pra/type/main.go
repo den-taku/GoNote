@@ -26,6 +26,14 @@ func NewTask(id int, detail string) *Task {
 	return task
 }
 
+func (task Task) String() string {
+	str := fmt.Sprintf("%d) %s", task.ID, task.Detail)
+	return str
+}
+
+func (task *Task) Finish() {
+	task.done = true
+}
 
 func main() {
 	var id ID = 3
@@ -66,4 +74,10 @@ func main() {
 	task.Detail = "buy the orange"
 	fmt.Println(task5.Detail)
 	fmt.Println(NewTask(1, "buy the milk"))
+
+	fmt.Printf("%s", task)
+
+	task6 := NewTask(7, "hoge")
+	task6.Finish()
+	fmt.Printf("%+v", task6)
 }
