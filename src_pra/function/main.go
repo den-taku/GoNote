@@ -11,11 +11,13 @@ func hello() {
 	fmt.Println("hello")
 }
 
-func div(i, j int) (int, error) {
+func div(i, j int) (result int, err error) {
 	if j == 0 {
-		return 0, errors.New("divided by zero")
+		err = errors.New("divided by zero")
+		return
 	}
-	return i / j, nil
+	result = i / j
+	return
 }
 
 func sum(i, j int) int {
@@ -24,6 +26,10 @@ func sum(i, j int) int {
 
 func swap(i, j int) (int, int) {
 	return j, i
+}
+
+var sum2 func(i, j int) = func(i, j int) {
+	fmt.Println(i + j)
 }
 
 func main() {
@@ -42,9 +48,16 @@ func main() {
 	// Err handling
 	// }
 
-	n, err := div(10, 0)
+	n, err := div(10, 10)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println(n)
+
+	func(i, j int) {
+		fmt.Println(i + j)
+	}(2, 4)
+
+	sum2(2, 4)
+
 }
