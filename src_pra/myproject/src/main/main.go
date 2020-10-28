@@ -52,4 +52,16 @@ func main() {
 		}
 		f.Println(m)
 	}
+
+	n = 10
+	switch n {
+	case 15:
+		f.Println("FizzBuzz")
+	case 5, 10:
+		f.Println("Buzz")
+	case 3, 6, 9:
+		f.Println("Fizz")
+	default:
+		f.Println(n)
+	}
 }
