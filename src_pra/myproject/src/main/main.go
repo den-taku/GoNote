@@ -6,6 +6,10 @@ import (
 
 // var message string = "hello world"
 
+func hello() {
+	f.Println("hello")
+}
+
 var foo, bar, buz string = "foo", "bar", "buz"
 
 var (
@@ -89,4 +93,5 @@ func main() {
 		f.Println(n)
 		
 	}
+	hello()
 }
