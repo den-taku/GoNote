@@ -11,6 +11,13 @@ func fn(arr [4]string) {
 	fmt.Println(arr)
 }
 
+func sum3(nums ...int) (result int) {
+	for _, n := range nums {
+		result += n
+	}
+	return
+}
+
 func main() {
 
 	arr[0] = "a"
@@ -42,4 +49,13 @@ func main() {
 	for i, s := range s {
 		fmt.Println(i, s)
 	}
+
+	t := []int{0, 1, 2, 3, 4, 5}
+	fmt.Println(t[2:4])
+	fmt.Println(t[0:len(t)])
+	fmt.Println(t[:3])
+	fmt.Println(t[3:])
+	fmt.Println(t[:])
+
+	fmt.Println(sum3(1, 2, 3, 4))
 }
