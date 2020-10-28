@@ -1,9 +1,9 @@
 package main
 import (
-	"fmt"
-	"gosample"
+	f"fmt"
+	."strings"
 )
 
 func main() {
-	fmt.Println(gosample.Message) // hello world
+	f.Println(ToUpper("hello world")) // hello world
 }
